@@ -12,7 +12,8 @@ namespace ConvertersTest
         [TestInitialize]
         public void InitializeTests()
         {
-            converter = new RomanNumeralsToDecimalConverter();
+            IValidator validator = new RomanNumeralsValidator();
+            converter = new RomanNumeralsToDecimalConverter(validator);
         }
 
         [TestMethod]

@@ -42,6 +42,7 @@
     <Compile Include="IntergalacticCurrencyConverter.cs" />
     <Compile Include="BaseInputInterpreter.cs" />
     <Compile Include="IntergalacticCurrencyInputInterpreter.cs" />
+    <Compile Include="IValidator.cs" />
     <Compile Include="RomanNumeralsToDecimalConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanNumeralsValidator.cs" />

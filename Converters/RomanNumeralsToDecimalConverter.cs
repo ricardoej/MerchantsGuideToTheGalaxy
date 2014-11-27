@@ -20,31 +20,32 @@ namespace Converters
             {"M", 1000}
         };
 
-        private RomanNumeralsValidator validator = new RomanNumeralsValidator();
+        private IValidator validator;
 
-        public int Convert(string romanNumeral)
+        public RomanNumeralsToDecimalConverter(IValidator validator)
         {
-            ValidateRomanNumeral(romanNumeral);
-
-            if (HasOneSymbol(romanNumeral))
-            {
-                return GetSymbolValue(romanNumeral);
-            }
-            else
-            {
-                return GetNumeralValue(romanNumeral);
-            }
+            this.validator = validator;
         }
 
-        private void ValidateRomanNumeral(string romanNumeral)
+        public int Convert(string numeral)
         {
-            if (!validator.IsValid(romanNumeral))
-                throw new ArgumentException(String.Format("Numeral {0} is invalid", romanNumeral));
+            ValidateRomanNumeral(numeral);
+
+            if (HasOneSymbol(numeral))
+                return GetSymbolValue(numeral);
+
+            return GetNumeralValue(numeral);
         }
 
-        private bool HasOneSymbol(string romanNumeral)
+        private void ValidateRomanNumeral(string numeral)
         {
-            return romanNumeral.Length == 1;
+            if (!validator.IsValid(numeral))
+                throw new ArgumentException(String.Format("Numeral {0} is invalid", numeral));
+        }
+
+        private bool HasOneSymbol(string numeral)
+        {
+            return numeral.Length == 1;
         }
 
         private int GetSymbolValue(string symbol)
@@ -52,13 +53,15 @@ namespace Converters
             return symbolsValueTable[symbol];
         }
 
-        private int GetNumeralValue(string romanNumeral)
+        private int GetNumeralValue(string numeral)
         {
             int decimalValue = 0;
             int lastSymbolValue = 0;
-            for (int i = romanNumeral.Length - 1; i >= 0; i--) // for each symbol in roman numeral starting from end
+            for (int i = numeral.Length - 1; i >= 0; i--) // in order to calculate the subtracted
+                                                          // symbols we have to iterate in roman
+                                                          // numeral starting from end
             {
-                string symbol = romanNumeral[i].ToString();
+                string symbol = numeral[i].ToString();
                 int currentSymbolValue = GetSymbolValueInNumeral(symbol, lastSymbolValue);
                 decimalValue += currentSymbolValue;
                 lastSymbolValue = currentSymbolValue;
@@ -68,16 +71,10 @@ namespace Converters
 
         private int GetSymbolValueInNumeral(string symbol, int lastSymbolValue)
         {
-            int symbolValue = GetSymbolValue(symbol);
-            if (CurrentValueIsLessThanLastValue(lastSymbolValue, symbolValue))
-                return symbolValue * -1; // the symbol has be subtracted from previous symbol value
-            else
-                return symbolValue;
-        }
-
-        private bool CurrentValueIsLessThanLastValue(int lastSymbolValue, int symbolValue)
-        {
-            return symbolValue < lastSymbolValue;
+            int currentValue = GetSymbolValue(symbol);
+            if (currentValue < lastSymbolValue)
+                return currentValue * -1; // the symbol has be subtracted from previous symbol value
+            return currentValue;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Converters
             {"Iron", 195.5}
         };
 
-        private RomanNumeralsToDecimalConverter romanNumeralsToDecimalConverter = new RomanNumeralsToDecimalConverter();
+        private RomanNumeralsToDecimalConverter romanNumeralsToDecimalConverter = new RomanNumeralsToDecimalConverter(new RomanNumeralsValidator());
 
         public double Convert(string intergalacticValue)
         {

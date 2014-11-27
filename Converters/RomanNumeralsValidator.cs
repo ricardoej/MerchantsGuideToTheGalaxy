@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public class RomanNumeralsValidator
+    public class RomanNumeralsValidator: IValidator
     {
-        private List<string> romanNumeralsInvalidatePatterns = new List<string>()
+        private List<string> romanNumeralsInvalidPatterns = new List<string>()
         {
             // Invalid symbols
             "[^IVXLCDM]",
@@ -30,20 +30,20 @@ namespace Converters
             "VX", "VL", "VC", "VD", "VM", "LC", "LD", "LM", "DM"
         };
 
-        public bool IsValid(string romanNumeral)
+        public bool IsValid(string numeral)
         {
-            foreach (var invalidatePattern in romanNumeralsInvalidatePatterns)
+            foreach (var invalidPattern in romanNumeralsInvalidPatterns)
             {
-                if (SymbolMatchWithInvalidatePattern(romanNumeral, invalidatePattern))
+                if (SymbolMatchWithInvalidPattern(numeral, invalidPattern))
                     return false; // the numeral is not valid
             }
 
             return true; // great! we have a valid numeral
         }
 
-        private bool SymbolMatchWithInvalidatePattern(string romanNumeral, string invalidatePattern)
+        private bool SymbolMatchWithInvalidPattern(string romanNumeral, string invalidPattern)
         {
-            return Regex.IsMatch(romanNumeral, invalidatePattern);
+            return Regex.IsMatch(romanNumeral, invalidPattern);
         }
     }
 }
