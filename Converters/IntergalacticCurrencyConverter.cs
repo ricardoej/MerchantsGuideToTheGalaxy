@@ -6,34 +6,32 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public class IntergalacticCurrencyConverter
+    public class IntergalacticCurrencyConverter: NumeralConverter
     {
-        private Dictionary<string, string> symbolsValueTable = new Dictionary<string, string>()
-        {
-            {"glob", "I"},
-            {"prok", "V"},
-            {"pish", "X"},
-            {"tegj", "L"}
-        };
+        private NumeralConverter baseConverter;
 
-        private Dictionary<string, double> multipliersValueTable = new Dictionary<string, double>()
-        {
-            {"Silver", 17},
-            {"Gold", 14480},
-            {"Iron", 195.5}
-        };
+        public IDictionary<string, string> SymbolsValueTable { get; set; }
 
-        private RomanNumeralsToDecimalConverter romanNumeralsToDecimalConverter = new RomanNumeralsToDecimalConverter(new RomanNumeralsValidator());
+        public IDictionary<string, double> MultipliersValueTable { get; set; }
+
+        public IntergalacticCurrencyConverter(NumeralConverter converter)
+        {
+            this.baseConverter = converter;
+            SymbolsValueTable = new Dictionary<string, string>();
+            MultipliersValueTable = new Dictionary<string, double>();
+        }
 
         public double Convert(string intergalacticValue)
         {
             List<string> numeral = new List<string>();
             List<string> multipliers = new List<string>();
-
             ExtractNumeralAndMultipliers(intergalacticValue, numeral, multipliers);
-            string romanNumeralValue = ConvertIntergalactToRomanNumeral(numeral);
-            double decimalValue = ConvertRomanNumeralToDecimal(romanNumeralValue);
+
+            string baseNumeralValue = ConvertIntergalactToBaseNumeral(numeral);
+            double decimalValue = baseConverter.Convert(baseNumeralValue);
+
             decimalValue = ApplyMultipliers(multipliers, decimalValue);
+
             return decimalValue;
         }
 
@@ -53,34 +51,29 @@ namespace Converters
 
         private bool IsSymbol(string word)
         {
-            return symbolsValueTable.ContainsKey(word);
+            return SymbolsValueTable.ContainsKey(word);
         }
 
         private bool IsMultiplier(string word)
         {
-            return multipliersValueTable.ContainsKey(word);
+            return MultipliersValueTable.ContainsKey(word);
         }
 
-        private string ConvertIntergalactToRomanNumeral(List<string> numeral)
+        private string ConvertIntergalactToBaseNumeral(List<string> numeral)
         {
             string romanNumeral = "";
             foreach (var symbol in numeral)
             {
-                romanNumeral += symbolsValueTable[symbol];
+                romanNumeral += SymbolsValueTable[symbol];
             }
             return romanNumeral;
-        }
-
-        private int ConvertRomanNumeralToDecimal(string romanNumeralValue)
-        {
-            return romanNumeralsToDecimalConverter.Convert(romanNumeralValue);
         }
 
         private double ApplyMultipliers(List<string> multipliers, double numeralValue)
         {
             foreach (var multiplier in multipliers)
             {
-                numeralValue *= multipliersValueTable[multiplier];
+                numeralValue *= MultipliersValueTable[multiplier];
             }
             return numeralValue;
         }

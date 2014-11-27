@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public class RomanNumeralsToDecimalConverter
+    public class RomanNumeralToDecimalConverter: NumeralConverter
     {
-        private Dictionary<string, int> symbolsValueTable = new Dictionary<string,int>()
+        private Dictionary<string, int> symbolsValueTable = new Dictionary<string, int>()
         {
             {"I", 1},
             {"V", 5},
@@ -20,14 +20,14 @@ namespace Converters
             {"M", 1000}
         };
 
-        private IValidator validator;
+        private NumeralValidator validator;
 
-        public RomanNumeralsToDecimalConverter(IValidator validator)
+        public RomanNumeralToDecimalConverter(NumeralValidator validator)
         {
             this.validator = validator;
         }
 
-        public int Convert(string numeral)
+        public double Convert(string numeral)
         {
             ValidateRomanNumeral(numeral);
 

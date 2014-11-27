@@ -50,9 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="RomanNumeralsToDecimalConverterTest.cs" />
+    <Compile Include="RomanNumeralToDecimalConverterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RomanNumeralsValidatorTest.cs" />
+    <Compile Include="RomanNumeralValidatorTest.cs" />
     <Compile Include="IntergalacticCurrencyConverterTest.cs" />
     <Compile Include="IntergalacticCurrencyInputInterpreterTest.cs" />
   </ItemGroup>

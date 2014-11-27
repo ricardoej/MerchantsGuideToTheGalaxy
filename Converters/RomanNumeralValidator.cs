@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public class RomanNumeralsValidator: IValidator
+    public class RomanNumeralValidator: NumeralValidator
     {
         private List<string> romanNumeralsInvalidPatterns = new List<string>()
         {

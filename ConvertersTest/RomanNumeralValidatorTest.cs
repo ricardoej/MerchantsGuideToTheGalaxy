@@ -5,14 +5,14 @@ using Converters;
 namespace ConvertersTest
 {
     [TestClass]
-    public class RomanNumeralsValidatorTest
+    public class RomanNumeralValidatorTest
     {
-        private RomanNumeralsValidator validator;
+        private RomanNumeralValidator validator;
 
         [TestInitialize]
         public void InitializeTests()
         {
-            validator = new RomanNumeralsValidator();
+            validator = new RomanNumeralValidator();
         }
 
         [TestMethod]

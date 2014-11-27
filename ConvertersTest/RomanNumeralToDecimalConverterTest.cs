@@ -5,15 +5,15 @@ using Converters;
 namespace ConvertersTest
 {
     [TestClass]
-    public class RomanNumeralsToDecimalConverterTest
+    public class RomanNumeralToDecimalConverterTest
     {
-        private RomanNumeralsToDecimalConverter converter;
+        private RomanNumeralToDecimalConverter converter;
 
         [TestInitialize]
         public void InitializeTests()
         {
-            IValidator validator = new RomanNumeralsValidator();
-            converter = new RomanNumeralsToDecimalConverter(validator);
+            NumeralValidator validator = new RomanNumeralValidator();
+            converter = new RomanNumeralToDecimalConverter(validator);
         }
 
         [TestMethod]

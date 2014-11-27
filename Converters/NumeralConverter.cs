@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public interface IValidator
+    public interface NumeralConverter
     {
-        bool IsValid(string numeral);
+        double Convert(string numeral);
     }
 }
