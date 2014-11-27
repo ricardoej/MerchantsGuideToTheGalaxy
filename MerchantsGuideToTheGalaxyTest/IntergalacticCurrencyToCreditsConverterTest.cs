@@ -12,7 +12,7 @@ namespace MerchantsGuideToTheGalaxyTest
         [TestInitialize]
         public void InitializeTests()
         {
-            NumeralValidator romanNumeralValidator = new RomanNumeralValidator();
+            Validator romanNumeralValidator = new RomanNumeralValidator();
             RomanNumeralToDecimalConverter romanNumeralToDecimalConverter = new RomanNumeralToDecimalConverter(romanNumeralValidator);
             converter = new IntergalacticCurrencyToCreditsConverter(romanNumeralToDecimalConverter);
 

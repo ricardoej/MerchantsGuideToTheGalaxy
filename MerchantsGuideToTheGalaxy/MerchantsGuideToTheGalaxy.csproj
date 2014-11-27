@@ -39,19 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Input\Base\InputInterpreter.cs" />
-    <Compile Include="Input\Base\SetInputInterpreter.cs" />
-    <Compile Include="Input\IntergalacticCurrencyToCreditsInputInterpreter.cs" />
-    <Compile Include="Input\MultiplierTableInputInterpreter.cs" />
+    <Compile Include="Input\Base\Input.cs" />
+    <Compile Include="Input\Base\InputSet.cs" />
+    <Compile Include="Input\IntergalacticNumeralInput.cs" />
+    <Compile Include="Input\MultiplierInput.cs" />
     <Compile Include="Converter\Base\NumeralConverter.cs" />
     <Compile Include="Converter\IntergalacticCurrencyToCreditsConverter.cs" />
-    <Compile Include="Input\QuestionInputInterpreter.cs" />
-    <Compile Include="Input\RomanNumeralToDecimalInputInterpreter.cs" />
+    <Compile Include="Input\QuestionInput.cs" />
+    <Compile Include="Input\RomanNumeralInput.cs" />
     <Compile Include="Validator\Base\NumeralValidator.cs" />
     <Compile Include="Converter\RomanNumeralToDecimalConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validator\RomanNumeralValidator.cs" />
-    <Compile Include="Input\SymbolTableInputInterpreter.cs" />
+    <Compile Include="Input\SymbolInput.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

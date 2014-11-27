@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MerchantsGuideToTheGalaxy
 {
-    public abstract class SetInputInterpreter: InputInterpreter
+    public abstract class InputSet: Input
     {
-        protected List<InputInterpreter> inputInterpreters = new List<InputInterpreter>();
+        protected List<Input> inputInterpreters = new List<Input>();
 
-        public SetInputInterpreter()
+        public InputSet()
         {
             AddInputInterpreters();
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MerchantsGuideToTheGalaxy
 {
-    public class IntergalacticCurrencyToCreditsInputInterpreter: SetInputInterpreter
+    public class IntergalacticNumeralInput: InputSet
     {
         protected override void AddInputInterpreters()
         {
@@ -14,9 +14,9 @@ namespace MerchantsGuideToTheGalaxy
             RomanNumeralToDecimalConverter romanConverter = new RomanNumeralToDecimalConverter(validator);
             IntergalacticCurrencyToCreditsConverter intergalacticConverter = new IntergalacticCurrencyToCreditsConverter(romanConverter);
 
-            inputInterpreters.Add(new SymbolTableInputInterpreter<string>(intergalacticConverter));
-            inputInterpreters.Add(new MultiplierTableInputInterpreter<string>(intergalacticConverter));
-            inputInterpreters.Add(new QuestionInputInterpreter<string>(intergalacticConverter));
+            inputInterpreters.Add(new SymbolInput<string>(intergalacticConverter));
+            inputInterpreters.Add(new MultiplierInput<string>(intergalacticConverter));
+            inputInterpreters.Add(new QuestionInput<string>(intergalacticConverter));
         }
     }
 }

@@ -5,25 +5,25 @@ using MerchantsGuideToTheGalaxy;
 namespace MerchantsGuideToTheGalaxyTest
 {
     [TestClass]
-    public class SymbolTableInputInterpreterTest
+    public class SymbolInputTest
     {
-        private SymbolTableInputInterpreter<string> inputInterpreter;
+        private SymbolInput<string> inputInterpreter;
         private IntergalacticCurrencyToCreditsConverter converter;
 
         [TestInitialize]
         public void InitializeTests()
         {
-            NumeralValidator romanNumeralValidator = new RomanNumeralValidator();
+            Validator romanNumeralValidator = new RomanNumeralValidator();
             RomanNumeralToDecimalConverter romanNumeralToDecimalConverter = new RomanNumeralToDecimalConverter(romanNumeralValidator);
             converter = new IntergalacticCurrencyToCreditsConverter(romanNumeralToDecimalConverter);
-            inputInterpreter = new SymbolTableInputInterpreter<string>(converter);
+            inputInterpreter = new SymbolInput<string>(converter);
         }
 
         [TestMethod]
         public void ProcessValidSymbolTableInput()
         {
             string result = inputInterpreter.Process("glob is I");
-            Assert.AreEqual(InputInterpreter.IS_NOT_A_QUESTION, result);
+            Assert.AreEqual(Input.IS_NOT_A_QUESTION, result);
             Assert.AreEqual("I", converter.SymbolsValueTable["glob"]);
         }
 

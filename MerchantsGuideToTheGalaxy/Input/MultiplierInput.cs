@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MerchantsGuideToTheGalaxy
 {
-    public class MultiplierTableInputInterpreter<TSymbolValue>: InputInterpreter
+    public class MultiplierInput<TSymbolValue>: Input
     {
         private NumeralConverterWithSymbolTableAndMultiplierTable<TSymbolValue> converter;
 
-        public MultiplierTableInputInterpreter(NumeralConverterWithSymbolTableAndMultiplierTable<TSymbolValue> converter)
+        public MultiplierInput(NumeralConverterWithSymbolTableAndMultiplierTable<TSymbolValue> converter)
         {
             this.converter = converter;
         }

@@ -14,8 +14,8 @@ namespace MerchantsGuideToTheGalaxyApp
         {
             try
             {
-                IntergalacticCurrencyToCreditsInputInterpreter inputInterpreter
-                    = new IntergalacticCurrencyToCreditsInputInterpreter();
+                IntergalacticNumeralInput inputInterpreter
+                    = new IntergalacticNumeralInput();
                 using (StreamReader reader = new StreamReader("Data/Input.txt"))
                 {
                     while (reader.Peek() >= 0)
@@ -23,7 +23,7 @@ namespace MerchantsGuideToTheGalaxyApp
                         string input = reader.ReadLine();
                         string numeral;
                         string value = inputInterpreter.Process(input, out numeral);
-                        if (value != InputInterpreter.IS_NOT_A_QUESTION)
+                        if (value != Input.IS_NOT_A_QUESTION)
                         {
                             Console.WriteLine("{0} is {1} Credits", numeral, value);
                         }

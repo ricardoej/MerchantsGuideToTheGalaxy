@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MerchantsGuideToTheGalaxy
 {
-    public class RomanNumeralToDecimalInputInterpreter: SetInputInterpreter
+    public class RomanNumeralInput: InputSet
     {
         protected override void AddInputInterpreters()
         {
             RomanNumeralValidator validator = new RomanNumeralValidator();
             RomanNumeralToDecimalConverter converter = new RomanNumeralToDecimalConverter(validator);
-            inputInterpreters.Add(new QuestionInputInterpreter<int>(converter));
+            inputInterpreters.Add(new QuestionInput<int>(converter));
         }
     }
 }

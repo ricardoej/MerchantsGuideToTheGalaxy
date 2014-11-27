@@ -5,14 +5,14 @@ using MerchantsGuideToTheGalaxy;
 namespace MerchantsGuideToTheGalaxyTest
 {
     [TestClass]
-    public class RomanNumeralToDecimalInputInterpreterTest
+    public class RomanNumeralInputTest
     {
-        private RomanNumeralToDecimalInputInterpreter inputInterpreter;
+        private RomanNumeralInput inputInterpreter;
 
         [TestInitialize]
         public void InitializeTests()
         {
-            inputInterpreter = new RomanNumeralToDecimalInputInterpreter();
+            inputInterpreter = new RomanNumeralInput();
         }
 
         [TestMethod]

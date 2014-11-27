@@ -5,14 +5,14 @@ using MerchantsGuideToTheGalaxy;
 namespace MerchantsGuideToTheGalaxyTest
 {
     [TestClass]
-    public class IntergalacticCurrencyToCreditsInputInterpreterTest
+    public class IntergalacticNumeralInputTest
     {
-        private IntergalacticCurrencyToCreditsInputInterpreter inputInterpreter;
+        private IntergalacticNumeralInput inputInterpreter;
 
         [TestInitialize]
         public void InitializeTests()
         {
-            inputInterpreter = new IntergalacticCurrencyToCreditsInputInterpreter();
+            inputInterpreter = new IntergalacticNumeralInput();
         }
 
         [TestMethod]

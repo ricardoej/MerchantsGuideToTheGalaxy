@@ -9,9 +9,9 @@ namespace MerchantsGuideToTheGalaxy
 {
     public class RomanNumeralToDecimalConverter: NumeralConverterWithSymbolTable<int>
     {
-        private NumeralValidator validator;
+        private Validator validator;
 
-        public RomanNumeralToDecimalConverter(NumeralValidator validator)
+        public RomanNumeralToDecimalConverter(Validator validator)
         {
             this.validator = validator;
 

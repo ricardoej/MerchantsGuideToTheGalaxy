@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MerchantsGuideToTheGalaxy
 {
-    public interface NumeralValidator
+    public interface Validator
     {
         bool IsValid(string numeral);
     }

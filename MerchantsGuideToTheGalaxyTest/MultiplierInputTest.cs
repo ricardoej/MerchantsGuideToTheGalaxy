@@ -5,15 +5,15 @@ using MerchantsGuideToTheGalaxy;
 namespace MerchantsGuideToTheGalaxyTest
 {
     [TestClass]
-    public class MultiplierTableInputInterpreterTest
+    public class MultiplierInputTest
     {
-        private MultiplierTableInputInterpreter<string> inputInterpreter;
+        private MultiplierInput<string> inputInterpreter;
         private IntergalacticCurrencyToCreditsConverter converter;
 
         [TestInitialize]
         public void InitializeTests()
         {
-            NumeralValidator romanNumeralValidator = new RomanNumeralValidator();
+            Validator romanNumeralValidator = new RomanNumeralValidator();
             RomanNumeralToDecimalConverter romanNumeralToDecimalConverter = new RomanNumeralToDecimalConverter(romanNumeralValidator);
             converter = new IntergalacticCurrencyToCreditsConverter(romanNumeralToDecimalConverter);
             converter.AddSymbolValue("glob", "I");
@@ -21,14 +21,14 @@ namespace MerchantsGuideToTheGalaxyTest
             converter.AddSymbolValue("pish", "X");
             converter.AddSymbolValue("tegj", "L");
 
-            inputInterpreter = new MultiplierTableInputInterpreter<string>(converter);
+            inputInterpreter = new MultiplierInput<string>(converter);
         }
 
         [TestMethod]
         public void ProcessValidMultiplierTableInput()
         {
             string result = inputInterpreter.Process("glob prok Gold is 57800 Credits");
-            Assert.AreEqual(InputInterpreter.IS_NOT_A_QUESTION, result);
+            Assert.AreEqual(Input.IS_NOT_A_QUESTION, result);
             Assert.AreEqual(14450, converter.MultipliersValueTable["Gold"]);
         }
 

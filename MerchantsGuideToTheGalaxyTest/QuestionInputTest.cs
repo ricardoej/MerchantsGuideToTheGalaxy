@@ -5,15 +5,15 @@ using MerchantsGuideToTheGalaxy;
 namespace MerchantsGuideToTheGalaxyTest
 {
     [TestClass]
-    public class QuestionInputInterpreterTest
+    public class QuestionInputTest
     {
-        private QuestionInputInterpreter<string> inputInterpreter;
+        private QuestionInput<string> inputInterpreter;
         private IntergalacticCurrencyToCreditsConverter converter;
 
         [TestInitialize]
         public void InitializeTests()
         {
-            NumeralValidator romanNumeralValidator = new RomanNumeralValidator();
+            Validator romanNumeralValidator = new RomanNumeralValidator();
             RomanNumeralToDecimalConverter romanNumeralToDecimalConverter = new RomanNumeralToDecimalConverter(romanNumeralValidator);
             converter = new IntergalacticCurrencyToCreditsConverter(romanNumeralToDecimalConverter);
             converter.AddSymbolValue("glob", "I");
@@ -25,7 +25,7 @@ namespace MerchantsGuideToTheGalaxyTest
             converter.AddMultiplierValue("Gold", 14480);
             converter.AddMultiplierValue("Iron", 195.5);
 
-            inputInterpreter = new QuestionInputInterpreter<string>(converter);
+            inputInterpreter = new QuestionInput<string>(converter);
         }
 
         [TestMethod]

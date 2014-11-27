@@ -55,12 +55,12 @@ namespace MerchantsGuideToTheGalaxy
 
         private string ConvertIntergalactToBaseNumeral(List<string> numeral)
         {
-            string romanNumeral = "";
+            string baseNumeral = "";
             foreach (var symbol in numeral)
             {
-                romanNumeral += SymbolsValueTable[symbol];
+                baseNumeral += SymbolsValueTable[symbol];
             }
-            return romanNumeral;
+            return baseNumeral;
         }
 
         private double ApplyMultipliers(List<string> multipliers, double numeralValue)

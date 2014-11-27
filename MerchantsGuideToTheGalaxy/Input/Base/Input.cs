@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MerchantsGuideToTheGalaxy
 {
-    public abstract class InputInterpreter
+    public abstract class Input
     {
         public const string IS_NOT_A_QUESTION = "OK";
 

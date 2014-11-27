@@ -54,11 +54,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanNumeralValidatorTest.cs" />
     <Compile Include="IntergalacticCurrencyToCreditsConverterTest.cs" />
-    <Compile Include="SymbolTableInputInterpreterTest.cs" />
-    <Compile Include="MultiplierTableInputInterpreterTest.cs" />
-    <Compile Include="QuestionInputInterpreterTest.cs" />
-    <Compile Include="RomanNumeralToDecimalInputInterpreterTest.cs" />
-    <Compile Include="IntergalacticCurrencyToCreditsInputInterpreterTest.cs" />
+    <Compile Include="SymbolInputTest.cs" />
+    <Compile Include="MultiplierInputTest.cs" />
+    <Compile Include="QuestionInputTest.cs" />
+    <Compile Include="RomanNumeralInputTest.cs" />
+    <Compile Include="IntergalacticNumeralInputTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MerchantsGuideToTheGalaxy\MerchantsGuideToTheGalaxy.csproj">

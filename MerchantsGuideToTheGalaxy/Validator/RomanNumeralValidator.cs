@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MerchantsGuideToTheGalaxy
 {
-    public class RomanNumeralValidator: NumeralValidator
+    public class RomanNumeralValidator: Validator
     {
         private List<string> romanNumeralsInvalidPatterns = new List<string>()
         {
