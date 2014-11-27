@@ -16,14 +16,14 @@ namespace ConvertersTest
             RomanNumeralToDecimalConverter romanNumeralToDecimalConverter = new RomanNumeralToDecimalConverter(romanNumeralValidator);
             converter = new IntergalacticCurrencyConverter(romanNumeralToDecimalConverter);
 
-            converter.SymbolsValueTable.Add("glob", "I");
-            converter.SymbolsValueTable.Add("prok", "V");
-            converter.SymbolsValueTable.Add("pish", "X");
-            converter.SymbolsValueTable.Add("tegj", "L");
+            converter.AddSymbolValue("glob", "I");
+            converter.AddSymbolValue("prok", "V");
+            converter.AddSymbolValue("pish", "X");
+            converter.AddSymbolValue("tegj", "L");
 
-            converter.MultipliersValueTable.Add("Silver", 17);
-            converter.MultipliersValueTable.Add("Gold", 14480);
-            converter.MultipliersValueTable.Add("Iron", 195.5);
+            converter.AddMultiplierValue("Silver", 17);
+            converter.AddMultiplierValue("Gold", 14480);
+            converter.AddMultiplierValue("Iron", 195.5);
         }
 
         [TestMethod]

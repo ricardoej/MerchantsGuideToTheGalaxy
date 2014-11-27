@@ -7,27 +7,24 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public class RomanNumeralToDecimalConverter: NumeralConverter
+    public class RomanNumeralToDecimalConverter: NumeralConverterWithSymbolTable<int>
     {
-        private Dictionary<string, int> symbolsValueTable = new Dictionary<string, int>()
-        {
-            {"I", 1},
-            {"V", 5},
-            {"X", 10},
-            {"L", 50},
-            {"C", 100},
-            {"D", 500},
-            {"M", 1000}
-        };
-
         private NumeralValidator validator;
 
         public RomanNumeralToDecimalConverter(NumeralValidator validator)
         {
             this.validator = validator;
+
+            AddSymbolValue("I", 1);
+            AddSymbolValue("V", 5);
+            AddSymbolValue("X", 10);
+            AddSymbolValue("L", 50);
+            AddSymbolValue("C", 100);
+            AddSymbolValue("D", 500);
+            AddSymbolValue("M", 1000);
         }
 
-        public double Convert(string numeral)
+        public override double Convert(string numeral)
         {
             ValidateRomanNumeral(numeral);
 
@@ -50,7 +47,7 @@ namespace Converters
 
         private int GetSymbolValue(string symbol)
         {
-            return symbolsValueTable[symbol];
+            return SymbolsValueTable[symbol];
         }
 
         private int GetNumeralValue(string numeral)

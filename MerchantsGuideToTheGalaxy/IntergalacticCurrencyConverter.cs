@@ -6,22 +6,16 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public class IntergalacticCurrencyConverter: NumeralConverter
+    public class IntergalacticCurrencyConverter: NumeralConverterWithSymbolTableAndMultiplierTable<string, double>
     {
         private NumeralConverter baseConverter;
-
-        public IDictionary<string, string> SymbolsValueTable { get; set; }
-
-        public IDictionary<string, double> MultipliersValueTable { get; set; }
 
         public IntergalacticCurrencyConverter(NumeralConverter converter)
         {
             this.baseConverter = converter;
-            SymbolsValueTable = new Dictionary<string, string>();
-            MultipliersValueTable = new Dictionary<string, double>();
         }
 
-        public double Convert(string intergalacticValue)
+        public override double Convert(string intergalacticValue)
         {
             List<string> numeral = new List<string>();
             List<string> multipliers = new List<string>();
