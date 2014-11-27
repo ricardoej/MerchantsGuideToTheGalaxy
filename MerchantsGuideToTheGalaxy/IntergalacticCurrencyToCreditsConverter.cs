@@ -8,9 +8,9 @@ namespace Converters
 {
     public class IntergalacticCurrencyToCreditsConverter: NumeralConverterWithSymbolTableAndMultiplierTable<string, double>
     {
-        private NumeralConverter baseConverter;
+        private NumeralConverterWithoutSymbolTable baseConverter;
 
-        public IntergalacticCurrencyToCreditsConverter(NumeralConverter converter)
+        public IntergalacticCurrencyToCreditsConverter(NumeralConverterWithoutSymbolTable converter)
         {
             this.baseConverter = converter;
         }

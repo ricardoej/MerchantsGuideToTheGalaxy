@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public interface NumeralConverter
-    {
-        double Convert(string numeral);
-    }
-
-    public abstract class NumeralConverterWithSymbolTable<TSymbolValue>: NumeralConverter
+    public abstract class NumeralConverterWithoutSymbolTable
     {
         public abstract double Convert(string numeral);
+    }
 
+    public abstract class NumeralConverterWithSymbolTable<TSymbolValue>: NumeralConverterWithoutSymbolTable
+    {
         protected IDictionary<string, TSymbolValue> SymbolsValueTable { get; private set; }
 
         public NumeralConverterWithSymbolTable()
