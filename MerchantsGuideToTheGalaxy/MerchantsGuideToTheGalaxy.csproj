@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NumeralConverter.cs" />
-    <Compile Include="IntergalacticCurrencyConverter.cs" />
+    <Compile Include="IntergalacticCurrencyToCreditsConverter.cs" />
     <Compile Include="NumeralValidator.cs" />
     <Compile Include="RomanNumeralToDecimalConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

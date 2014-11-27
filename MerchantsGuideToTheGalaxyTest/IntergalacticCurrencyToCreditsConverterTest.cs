@@ -5,16 +5,16 @@ using Converters;
 namespace ConvertersTest
 {
     [TestClass]
-    public class IntergalacticCurrencyConverterTest
+    public class IntergalacticCurrencyToCreditsConverterTest
     {
-        private IntergalacticCurrencyConverter converter;
+        private IntergalacticCurrencyToCreditsConverter converter;
 
         [TestInitialize]
         public void InitializeTests()
         {
             NumeralValidator romanNumeralValidator = new RomanNumeralValidator();
             RomanNumeralToDecimalConverter romanNumeralToDecimalConverter = new RomanNumeralToDecimalConverter(romanNumeralValidator);
-            converter = new IntergalacticCurrencyConverter(romanNumeralToDecimalConverter);
+            converter = new IntergalacticCurrencyToCreditsConverter(romanNumeralToDecimalConverter);
 
             converter.AddSymbolValue("glob", "I");
             converter.AddSymbolValue("prok", "V");
