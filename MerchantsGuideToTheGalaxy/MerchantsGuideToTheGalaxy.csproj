@@ -39,12 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputInterpreter.cs" />
+    <Compile Include="MultiplierTableInputInterpreter.cs" />
     <Compile Include="NumeralConverter.cs" />
     <Compile Include="IntergalacticCurrencyToCreditsConverter.cs" />
     <Compile Include="NumeralValidator.cs" />
     <Compile Include="RomanNumeralToDecimalConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanNumeralValidator.cs" />
+    <Compile Include="SymbolTableInputInterpreter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

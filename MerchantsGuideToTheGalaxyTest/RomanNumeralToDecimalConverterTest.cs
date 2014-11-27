@@ -44,7 +44,7 @@ namespace ConvertersTest
         [TestMethod]
         public void ProcessSymbolsNotInOrder()
         {
-            Assert.AreEqual(1944, converter.Convert("MCMXLIV"));
+            Assert.AreEqual(2944, converter.Convert("MMCMXLIV"));
         }
     }
 }

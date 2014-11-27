@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public abstract class NumeralConverterWithoutSymbolTable
+    public abstract class NumeralConverter
     {
         public abstract double Convert(string numeral);
     }
 
-    public abstract class NumeralConverterWithSymbolTable<TSymbolValue>: NumeralConverterWithoutSymbolTable
+    public abstract class NumeralConverterWithSymbolTable<TSymbolValue>: NumeralConverter
     {
-        protected IDictionary<string, TSymbolValue> SymbolsValueTable { get; private set; }
+        public IDictionary<string, TSymbolValue> SymbolsValueTable { get; private set; }
 
         public NumeralConverterWithSymbolTable()
         {
@@ -34,22 +34,22 @@ namespace Converters
         }
     }
 
-    public abstract class NumeralConverterWithSymbolTableAndMultiplierTable<TSymbolValue, TMultiplierValue>:
+    public abstract class NumeralConverterWithSymbolTableAndMultiplierTable<TSymbolValue>:
         NumeralConverterWithSymbolTable<TSymbolValue>
     {
-        protected IDictionary<string, TMultiplierValue> MultipliersValueTable { get; private set; }
+        public IDictionary<string, double> MultipliersValueTable { get; private set; }
 
         public NumeralConverterWithSymbolTableAndMultiplierTable()
         {
-            MultipliersValueTable = new Dictionary<string, TMultiplierValue>();
+            MultipliersValueTable = new Dictionary<string, double>();
         }
 
-        public void AddMultiplierValue(string symbol, TMultiplierValue value)
+        public void AddMultiplierValue(string symbol, double value)
         {
             MultipliersValueTable.Add(symbol, value);
         }
 
-        public void RemoveMultiplierValue(string symbol, TMultiplierValue value)
+        public void RemoveMultiplierValue(string symbol, double value)
         {
             if (MultipliersValueTable.ContainsKey(symbol))
             {

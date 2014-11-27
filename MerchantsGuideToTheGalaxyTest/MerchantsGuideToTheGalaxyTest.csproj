@@ -54,6 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanNumeralValidatorTest.cs" />
     <Compile Include="IntergalacticCurrencyToCreditsConverterTest.cs" />
+    <Compile Include="SymbolTableInputInterpreterTest.cs" />
+    <Compile Include="MultiplierTableInputInterpreterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MerchantsGuideToTheGalaxy\MerchantsGuideToTheGalaxy.csproj">

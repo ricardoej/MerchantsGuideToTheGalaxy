@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Converters
 {
-    public class IntergalacticCurrencyToCreditsConverter: NumeralConverterWithSymbolTableAndMultiplierTable<string, double>
+    public class IntergalacticCurrencyToCreditsConverter: NumeralConverterWithSymbolTableAndMultiplierTable<string>
     {
-        private NumeralConverterWithoutSymbolTable baseConverter;
+        private NumeralConverter baseConverter;
 
-        public IntergalacticCurrencyToCreditsConverter(NumeralConverterWithoutSymbolTable converter)
+        public IntergalacticCurrencyToCreditsConverter(NumeralConverter converter)
         {
             this.baseConverter = converter;
         }
