@@ -57,9 +57,9 @@
     <Compile Include="IntergalacticCurrencyInputInterpreterTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Converters\Converters.csproj">
+    <ProjectReference Include="..\MerchantsGuideToTheGalaxy\MerchantsGuideToTheGalaxy.csproj">
       <Project>{a444d8d8-5480-41a1-a5da-8beef968fad7}</Project>
-      <Name>Converters</Name>
+      <Name>MerchantsGuideToTheGalaxy</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
