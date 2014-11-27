@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Converters
+namespace MerchantsGuideToTheGalaxy
 {
     public class SymbolTableInputInterpreter<TSymbolValue>: InputInterpreter
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Converters;
+using MerchantsGuideToTheGalaxy;
 
-namespace ConvertersTest
+namespace MerchantsGuideToTheGalaxyTest
 {
     [TestClass]
     public class RomanNumeralValidatorTest
