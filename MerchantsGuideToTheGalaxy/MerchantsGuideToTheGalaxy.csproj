@@ -40,9 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Input\Base\InputInterpreter.cs" />
+    <Compile Include="Input\Base\SetInputInterpreter.cs" />
+    <Compile Include="Input\IntergalacticCurrencyToCreditsInputInterpreter.cs" />
     <Compile Include="Input\MultiplierTableInputInterpreter.cs" />
     <Compile Include="Converter\Base\NumeralConverter.cs" />
     <Compile Include="Converter\IntergalacticCurrencyToCreditsConverter.cs" />
+    <Compile Include="Input\QuestionInputInterpreter.cs" />
+    <Compile Include="Input\RomanNumeralToDecimalInputInterpreter.cs" />
     <Compile Include="Validator\Base\NumeralValidator.cs" />
     <Compile Include="Converter\RomanNumeralToDecimalConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
