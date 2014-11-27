@@ -28,7 +28,7 @@ namespace MerchantsGuideToTheGalaxyTest
         public void ProcessValidMultiplierTableInput()
         {
             string result = inputInterpreter.Process("glob prok Gold is 57800 Credits");
-            Assert.AreEqual(InputInterpreter.RESULT_OK, result);
+            Assert.AreEqual(InputInterpreter.IS_NOT_A_QUESTION, result);
             Assert.AreEqual(14450, converter.MultipliersValueTable["Gold"]);
         }
 
@@ -49,6 +49,14 @@ namespace MerchantsGuideToTheGalaxyTest
         public void IsNotMultiplierTableInput()
         {
             Assert.IsFalse(inputInterpreter.IsValidInput("how many Credits is glob prok Gold ?"));
+        }
+
+        [TestMethod]
+        public void OutNumeralInMultiplierTableInput()
+        {
+            string numeral;
+            string result = inputInterpreter.Process("glob glob Silver is 34 Credits", out numeral);
+            Assert.AreEqual("glob glob Silver", numeral);
         }
     }
 }

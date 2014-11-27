@@ -15,15 +15,16 @@ namespace MerchantsGuideToTheGalaxy
             this.converter = converter;
         }
 
-        public override string Process(string input)
+        public override string Process(string input, out string numeral)
         {
             string[] wordsInInput = GetWordsInInput(input);
             if (IsValidInput(wordsInInput))
             {
                 string symbol = wordsInInput[0];
                 TSymbolValue value = (TSymbolValue)Convert.ChangeType(wordsInInput[2], typeof(TSymbolValue));
+                numeral = symbol;
                 converter.AddSymbolValue(symbol, value);
-                return RESULT_OK;
+                return IS_NOT_A_QUESTION;
             }
 
             throw new ArgumentException(String.Format("Input {0} is invalid", input));

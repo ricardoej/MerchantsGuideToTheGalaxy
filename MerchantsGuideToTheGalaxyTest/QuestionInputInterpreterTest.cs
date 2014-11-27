@@ -54,5 +54,13 @@ namespace MerchantsGuideToTheGalaxyTest
         {
             inputInterpreter.Process("pish pish Iron is 3910 Credits");
         }
+
+        [TestMethod]
+        public void OutNumeralInMultiplierTableInput()
+        {
+            string numeral;
+            string result = inputInterpreter.Process("how many Credits is glob prok Silver ?", out numeral);
+            Assert.AreEqual("glob prok Silver", numeral);
+        }
     }
 }

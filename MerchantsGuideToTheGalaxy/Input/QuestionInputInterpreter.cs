@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MerchantsGuideToTheGalaxy
 {
-    public class QuestionInputInterpreter<TSymbol>: InputInterpreter
+    public class QuestionInputInterpreter<TSymbolValue>: InputInterpreter
     {
         private NumeralConverter converter;
 
@@ -15,11 +15,11 @@ namespace MerchantsGuideToTheGalaxy
             this.converter = converter;
         }
 
-        public override string Process(string input)
+        public override string Process(string input, out string numeral)
         {
             if (IsValidInput(input))
             {
-                string numeral = input.Replace("how much is", "")
+                numeral = input.Replace("how much is", "")
                     .Replace("how many Credits is", "")
                     .Replace("how many is", "")
                     .Replace("?", "").Trim();
