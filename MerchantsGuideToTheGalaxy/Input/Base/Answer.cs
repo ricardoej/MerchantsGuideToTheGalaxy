@@ -8,6 +8,7 @@ namespace MerchantsGuideToTheGalaxy
 {
     public enum AnswerType
     {
+        INDEFINED,
         QUESTION,
         MULTIPLIER,
         SYMBOL
