@@ -21,7 +21,7 @@ namespace MerchantsGuideToTheGalaxy
             List<string> multipliers = new List<string>();
             ExtractNumeralAndMultipliers(intergalacticValue, numeral, multipliers);
 
-            string baseNumeralValue = ConvertIntergalactToBaseNumeral(numeral);
+            string baseNumeralValue = ConvertIntergalacticNumeralToBaseNumeral(numeral);
             double decimalValue = baseConverter.Convert(baseNumeralValue);
 
             decimalValue = ApplyMultipliers(multipliers, decimalValue);
@@ -53,7 +53,7 @@ namespace MerchantsGuideToTheGalaxy
             return MultipliersValueTable.ContainsKey(word);
         }
 
-        private string ConvertIntergalactToBaseNumeral(List<string> numeral)
+        private string ConvertIntergalacticNumeralToBaseNumeral(List<string> numeral)
         {
             string baseNumeral = "";
             foreach (var symbol in numeral)

@@ -22,10 +22,10 @@ namespace MerchantsGuideToTheGalaxyApp
                     {
                         string input = reader.ReadLine();
                         string numeral;
-                        string value = inputInterpreter.Process(input, out numeral);
-                        if (value != Input.IS_NOT_A_QUESTION)
+                        string response = inputInterpreter.Process(input, out numeral);
+                        if (response != Input.IS_NOT_A_QUESTION)
                         {
-                            Console.WriteLine("{0} is {1} Credits", numeral, value);
+                            Console.WriteLine("{0} is {1} Credits", numeral, response);
                         }
                     }
                 }
