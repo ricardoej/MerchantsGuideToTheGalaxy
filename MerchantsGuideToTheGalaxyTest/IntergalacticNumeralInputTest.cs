@@ -23,15 +23,15 @@ namespace MerchantsGuideToTheGalaxyTest
             inputInterpreter.Process("pish is X");
             inputInterpreter.Process("tegj is L");
             inputInterpreter.Process("glob glob Silver is 34 Credits");
-            Assert.AreEqual("42", inputInterpreter.Process("how much is pish tegj glob glob ?"));
-            Assert.AreEqual("68", inputInterpreter.Process("how many Credits is glob prok Silver ?"));
+            Assert.AreEqual(42, inputInterpreter.Process("how much is pish tegj glob glob ?").Value);
+            Assert.AreEqual(68, inputInterpreter.Process("how many Credits is glob prok Silver ?").Value);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ProcessInvalidIntergalacticCurrencyInput()
         {
-            Assert.AreEqual("2944", inputInterpreter.Process("how much wood could a woodchuck chuck if a woodchuck could chuck wood ?"));
+            inputInterpreter.Process("how much wood could a woodchuck chuck if a woodchuck could chuck wood ?");
         }
 
         [TestMethod]

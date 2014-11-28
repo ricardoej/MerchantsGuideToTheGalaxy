@@ -17,13 +17,13 @@ namespace MerchantsGuideToTheGalaxy
 
         protected abstract void AddInputInterpreters();
 
-        public override string Process(string input, out string numeral)
+        public override Answer Process(string input)
         {
             foreach (var inputInterpreter in inputInterpreters)
             {
                 if (inputInterpreter.IsValidInput(input))
                 {
-                    return inputInterpreter.Process(input, out numeral);
+                    return inputInterpreter.Process(input);
                 }
             }
 

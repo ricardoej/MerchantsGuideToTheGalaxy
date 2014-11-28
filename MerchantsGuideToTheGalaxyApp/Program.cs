@@ -18,19 +18,15 @@ namespace MerchantsGuideToTheGalaxyApp
                     = new IntergalacticNumeralInput();
                 using (StreamReader reader = new StreamReader("Data/Input.txt"))
                 {
-                    while (reader.Peek() >= 0)
+                    while (HasInput(reader))
                     {
                         string input = reader.ReadLine();
-                        string numeral;
-                        string response = inputInterpreter.Process(input, out numeral);
-                        if (response != Input.IS_NOT_A_QUESTION)
-                        {
-                            Console.WriteLine("{0} is {1} Credits", numeral, response);
-                        }
+                        Answer response = inputInterpreter.Process(input);
+                        PrintAnswer(response);
                     }
                 }
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 Console.WriteLine("I have no idea what you are talking about");
             }
@@ -42,6 +38,19 @@ namespace MerchantsGuideToTheGalaxyApp
             {
                 Console.ReadLine();
             }
+        }
+
+        private static void PrintAnswer(Answer response)
+        {
+            if (response.InputType == AnswerType.QUESTION)
+            {
+                Console.WriteLine("{0} is {1} Credits", response.InputNumeral, response.Value);
+            }
+        }
+
+        private static bool HasInput(StreamReader reader)
+        {
+            return reader.Peek() >= 0;
         }
     }
 }

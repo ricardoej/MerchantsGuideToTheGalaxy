@@ -44,8 +44,8 @@ namespace MerchantsGuideToTheGalaxyTest
         [TestMethod]
         public void ProcessValidQuestionInput()
         {
-            Assert.AreEqual("68", inputInterpreter.Process("how many Credits is glob prok Silver ?"));
-            Assert.AreEqual("42", inputInterpreter.Process("how much is pish tegj glob glob ?"));
+            Assert.AreEqual(68, inputInterpreter.Process("how many Credits is glob prok Silver ?").Value);
+            Assert.AreEqual(42, inputInterpreter.Process("how much is pish tegj glob glob ?").Value);
         }
 
         [TestMethod]
@@ -58,9 +58,8 @@ namespace MerchantsGuideToTheGalaxyTest
         [TestMethod]
         public void OutNumeralInMultiplierTableInput()
         {
-            string numeral;
-            string result = inputInterpreter.Process("how many Credits is glob prok Silver ?", out numeral);
-            Assert.AreEqual("glob prok Silver", numeral);
+            Answer result = inputInterpreter.Process("how many Credits is glob prok Silver ?");
+            Assert.AreEqual("glob prok Silver", result.InputNumeral);
         }
     }
 }

@@ -15,18 +15,26 @@ namespace MerchantsGuideToTheGalaxy
             this.converter = converter;
         }
 
-        public override string Process(string input, out string numeral)
+        public override Answer Process(string input)
         {
             if (IsValidInput(input))
             {
-                numeral = input.Replace("how much is", "")
-                    .Replace("how many Credits is", "")
-                    .Replace("how many is", "")
-                    .Replace("?", "").Trim();
-                return converter.Convert(numeral).ToString();
+                string numeral = ExtractNumeralFromInput(input);
+                double value = converter.Convert(numeral);
+                return new Answer(AnswerType.QUESTION, value, numeral);
             }
 
             throw new ArgumentException(String.Format("Input {0} is invalid", input));
+        }
+
+        private string ExtractNumeralFromInput(string input)
+        {
+            string numeral;
+            numeral = input.Replace("how much is", "")
+                .Replace("how many Credits is", "")
+                .Replace("how many is", "")
+                .Replace("?", "").Trim();
+            return numeral;
         }
 
         public override bool IsValidInput(string input)

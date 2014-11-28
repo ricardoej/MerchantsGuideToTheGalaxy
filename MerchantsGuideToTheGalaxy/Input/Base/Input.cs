@@ -8,15 +8,7 @@ namespace MerchantsGuideToTheGalaxy
 {
     public abstract class Input
     {
-        public const string IS_NOT_A_QUESTION = "OK";
-
-        public string Process(string input)
-        {
-            string numeral;
-            return Process(input, out numeral);
-        }
-
-        public abstract string Process(string input, out string numeral);
+        public abstract Answer Process(string input);
 
         public abstract bool IsValidInput(string input);
     }

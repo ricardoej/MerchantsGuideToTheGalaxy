@@ -15,7 +15,7 @@ namespace MerchantsGuideToTheGalaxy
             this.converter = converter;
         }
 
-        public override string Process(string input, out string numeral)
+        public override Answer Process(string input)
         {
             string[] wordsInInput = GetWordsInInput(input);
             if (IsValidInput(wordsInInput))
@@ -24,12 +24,15 @@ namespace MerchantsGuideToTheGalaxy
                 int multiplierValueIndex = wordsInInput.Length - 2;
                 string multiplierSymbol = wordsInInput[multiplierSymbolIndex];
                 double multiplierValue = Double.Parse(wordsInInput[multiplierValueIndex]);
-                numeral = GetNumeral(wordsInInput, multiplierSymbolIndex);
+
+                string numeral = GetNumeral(wordsInInput, multiplierSymbolIndex);
                 double numeralValue = converter.Convert(numeral);
+
                 multiplierValue /= numeralValue;
                 converter.AddMultiplierValue(multiplierSymbol, multiplierValue);
+
                 numeral += " " + multiplierSymbol;
-                return IS_NOT_A_QUESTION;
+                return new Answer(AnswerType.MULTIPLIER, Double.NaN, numeral);
             }
 
             throw new ArgumentException(String.Format("Input {0} is invalid", input));

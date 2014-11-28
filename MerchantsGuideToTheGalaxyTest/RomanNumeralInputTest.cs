@@ -18,14 +18,14 @@ namespace MerchantsGuideToTheGalaxyTest
         [TestMethod]
         public void ProcessValidRomanNumeralInput()
         {
-            Assert.AreEqual("2944", inputInterpreter.Process("how many is MMCMXLIV?"));
+            Assert.AreEqual(2944, inputInterpreter.Process("how many is MMCMXLIV?").Value);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void ProcessInvalidRomanNumeralInput()
         {
-            Assert.AreEqual("2944", inputInterpreter.Process("how many is glob glob?"));
+            inputInterpreter.Process("how many is glob glob?");
         }
 
         [TestMethod]

@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Input\Base\Answer.cs" />
     <Compile Include="Input\Base\Input.cs" />
     <Compile Include="Input\Base\InputSet.cs" />
     <Compile Include="Input\IntergalacticNumeralInput.cs" />
