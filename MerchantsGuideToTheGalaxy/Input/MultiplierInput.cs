@@ -15,7 +15,7 @@ namespace MerchantsGuideToTheGalaxy
             this.converter = converter;
         }
 
-        public override Answer Process(string input)
+        public override Output Process(string input)
         {
             string[] wordsInInput = GetWordsInInput(input);
             if (IsValidInput(wordsInInput))
@@ -32,7 +32,7 @@ namespace MerchantsGuideToTheGalaxy
                 converter.AddMultiplierValue(multiplierSymbol, multiplierValue);
 
                 numeral += " " + multiplierSymbol;
-                return new Answer(AnswerType.MULTIPLIER, Double.NaN, numeral);
+                return new Output(InputType.MULTIPLIER, Double.NaN, numeral);
             }
 
             throw new ArgumentException(String.Format("Input {0} is invalid", input));

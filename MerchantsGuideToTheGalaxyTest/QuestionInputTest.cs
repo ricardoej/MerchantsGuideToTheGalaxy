@@ -58,7 +58,7 @@ namespace MerchantsGuideToTheGalaxyTest
         [TestMethod]
         public void OutNumeralInMultiplierTableInput()
         {
-            Answer result = inputInterpreter.Process("how many Credits is glob prok Silver ?");
+            Output result = inputInterpreter.Process("how many Credits is glob prok Silver ?");
             Assert.AreEqual("glob prok Silver", result.InputNumeral);
         }
     }

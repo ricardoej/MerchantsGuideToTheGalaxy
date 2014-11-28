@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace MerchantsGuideToTheGalaxy
 {
+    public enum InputType
+    {
+        INDEFINED,
+        QUESTION,
+        MULTIPLIER,
+        SYMBOL
+    }
+
     public abstract class Input
     {
-        public abstract Answer Process(string input);
+        public abstract Output Process(string input);
 
         public abstract bool IsValidInput(string input);
     }

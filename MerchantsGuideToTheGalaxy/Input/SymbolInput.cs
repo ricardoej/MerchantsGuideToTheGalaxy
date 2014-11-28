@@ -15,7 +15,7 @@ namespace MerchantsGuideToTheGalaxy
             this.converter = converter;
         }
 
-        public override Answer Process(string input)
+        public override Output Process(string input)
         {
             string[] wordsInInput = GetWordsInInput(input);
             if (IsValidInput(wordsInInput))
@@ -23,7 +23,7 @@ namespace MerchantsGuideToTheGalaxy
                 string symbol = wordsInInput[0];
                 TSymbolValue value = (TSymbolValue)Convert.ChangeType(wordsInInput[2], typeof(TSymbolValue));
                 converter.AddSymbolValue(symbol, value);
-                return new Answer(AnswerType.SYMBOL, Double.NaN, symbol);
+                return new Output(InputType.SYMBOL, Double.NaN, symbol);
             }
 
             throw new ArgumentException(String.Format("Input {0} is invalid", input));

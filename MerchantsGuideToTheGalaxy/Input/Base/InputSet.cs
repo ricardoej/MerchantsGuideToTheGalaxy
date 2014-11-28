@@ -17,7 +17,7 @@ namespace MerchantsGuideToTheGalaxy
 
         protected abstract void AddInputInterpreters();
 
-        public override Answer Process(string input)
+        public override Output Process(string input)
         {
             foreach (var inputInterpreter in inputInterpreters)
             {

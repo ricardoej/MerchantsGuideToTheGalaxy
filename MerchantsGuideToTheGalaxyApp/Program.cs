@@ -21,7 +21,7 @@ namespace MerchantsGuideToTheGalaxyApp
                     while (HasInput(reader))
                     {
                         string input = reader.ReadLine();
-                        Answer response = inputInterpreter.Process(input);
+                        Output response = inputInterpreter.Process(input);
                         PrintAnswer(response);
                     }
                 }
@@ -40,9 +40,9 @@ namespace MerchantsGuideToTheGalaxyApp
             }
         }
 
-        private static void PrintAnswer(Answer response)
+        private static void PrintAnswer(Output response)
         {
-            if (response.InputType == AnswerType.QUESTION)
+            if (response.InputType == InputType.QUESTION)
             {
                 Console.WriteLine("{0} is {1} Credits", response.InputNumeral, response.Value);
             }

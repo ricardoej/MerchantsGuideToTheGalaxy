@@ -22,7 +22,7 @@ namespace MerchantsGuideToTheGalaxyTest
         [TestMethod]
         public void ProcessValidSymbolTableInput()
         {
-            Answer result = inputInterpreter.Process("glob is I");
+            Output result = inputInterpreter.Process("glob is I");
             Assert.AreEqual("I", converter.SymbolsValueTable["glob"]);
         }
 
@@ -48,7 +48,7 @@ namespace MerchantsGuideToTheGalaxyTest
         [TestMethod]
         public void OutNumeralInSymbolTableInput()
         {
-            Answer result = inputInterpreter.Process("glob is I");
+            Output result = inputInterpreter.Process("glob is I");
             Assert.AreEqual("glob", result.InputNumeral);
         }
     }

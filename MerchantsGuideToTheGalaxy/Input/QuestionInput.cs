@@ -15,13 +15,13 @@ namespace MerchantsGuideToTheGalaxy
             this.converter = converter;
         }
 
-        public override Answer Process(string input)
+        public override Output Process(string input)
         {
             if (IsValidInput(input))
             {
                 string numeral = ExtractNumeralFromInput(input);
                 double value = converter.Convert(numeral);
-                return new Answer(AnswerType.QUESTION, value, numeral);
+                return new Output(InputType.QUESTION, value, numeral);
             }
 
             throw new ArgumentException(String.Format("Input {0} is invalid", input));
